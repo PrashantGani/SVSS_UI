@@ -1,0 +1,15 @@
+.nav-link {
+    display: inline-block; /* Makes the link area just around the text */
+    color: white; /* Text color */
+    text-decoration: none; /* Remove underline */
+    padding: 0; /* No padding */
+    margin: 0; /* No margin */
+    line-height: 1.5; /* Adjust line height */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Hover effect */
+    padding: 2px 4px; /* Slight padding on hover */
+    border-radius: 4px; /* Optional: Add border radius for a softer effect */
+}

@@ -1,0 +1,11 @@
+.table th, .table td {
+    padding: 4px; /* Adjust this value to reduce or increase spacing */
+}
+
+.table {
+    border-collapse: collapse; /* Ensures no gaps between borders */
+}
+
+.pagination {
+    cursor: pointer; /* Change cursor to pointer */
+}
