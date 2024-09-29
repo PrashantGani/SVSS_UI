@@ -1,15 +1,224 @@
-.nav-link {
-    display: inline-block; /* Makes the link area just around the text */
-    color: white; /* Text color */
-    text-decoration: none; /* Remove underline */
-    padding: 0; /* No padding */
-    margin: 0; /* No margin */
-    line-height: 1.5; /* Adjust line height */
-    cursor: pointer; /* Change cursor to pointer on hover */
-}
 
-.nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Hover effect */
-    padding: 2px 4px; /* Slight padding on hover */
-    border-radius: 4px; /* Optional: Add border radius for a softer effect */
-}
+    body {
+        font-family: 'Arial', sans-serif; /* Use a modern font */
+        background-color: #f8f9fa; /* Light background for contrast */
+        margin: 0;
+        padding: 20px;
+    }
+
+    .container-fluid {
+        padding: 20px; /* Add padding around the container */
+    }
+
+    .card {
+        border-radius: 10px; /* Rounded corners for cards */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        transition: transform 0.2s; /* Smooth transform on hover */
+    }
+
+    .card:hover {
+        transform: translateY(-5px); /* Lift effect on hover */
+    }
+
+    .card-title {
+        font-size: 1.25rem; /* Increased font size for titles */
+        margin-bottom: 15px; /* Space below titles */
+    }
+
+    .card-text {
+        font-size: 1.5rem; /* Larger font for amounts */
+    }
+
+    h2 {
+        font-size: 2rem; /* Increase header size */
+        margin-bottom: 20px; /* Space below header */
+        color: #343a40; /* Dark color for text */
+    }
+
+    /* Responsive styles for smaller devices */
+    @media (max-width: 768px) {
+        .card {
+            margin-bottom: 15px; /* Space between cards on smaller screens */
+        }
+    }
+
+    /* Chart container */
+    canvas {
+        max-width: 800px; /* Set maximum width for the chart */
+        max-height: 400px; /* Set maximum height for the chart */
+        margin: auto; /* Center the chart */
+        display: block; /* Block display for centering */
+    }
+
+    /* Pagination styles */
+    .pagination {
+        margin-top: 20px; /* Space above pagination */
+    }
+
+    .pagination .page-link {
+        color: #4A90E2; /* Color for pagination links */
+    }
+
+    .pagination .page-item.active .page-link {
+        background-color: #4A90E2; /* Background color for active page */
+        color: white; /* Text color for active page */
+    }
+
+    .pagination .page-item.disabled .page-link {
+        color: #6c757d; /* Color for disabled links */
+    }
+
+    /* Table styles */
+    table {
+        width: 100%; /* Full width table */
+        margin-top: 20px; /* Space above the table */
+        border-collapse: collapse; /* Remove spacing between cells */
+    }
+
+    th, td {
+        padding: 12px; /* Padding for table cells */
+        text-align: left; /* Align text to the left */
+        border-bottom: 1px solid #dee2e6; /* Bottom border for rows */
+    }
+
+    th {
+        background-color: #4A90E2; /* Header background color */
+        color: white; /* Header text color */
+    }
+
+    tr:hover {
+        background-color: #f1f1f1; /* Highlight row on hover */
+    }
+
+    /* Custom Navbar */
+    .custom-navbar {
+        background-color: #4A90E2; /* Custom navbar color */
+        padding: 10px; /* Padding for navbar */
+        border-radius: 0 0 10px 10px; /* Rounded corners */
+    }
+
+
+
+
+    // body {
+    //     font-family: 'Arial', sans-serif; /* Use a modern font */
+    //     background-color: #f8f9fa; /* Light background for contrast */
+    //     margin: 0; /* Remove default margin */
+    //     padding: 20px; /* Add padding around the page */
+    // }
+
+    // .container-fluid {
+    //     padding: 20px; /* Add padding around the container */
+    //     border-radius: 10px; /* Rounded corners for container */
+    //     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for container */
+    //     background-color: #ffffff; /* White background for the container */
+    // }
+
+    // h2 {
+    //     font-size: 2rem; /* Increase header size */
+    //     margin-bottom: 20px; /* Space below header */
+    //     color: #343a40; /* Dark color for text */
+    //     text-align: center; /* Center align header */
+    // }
+
+    // /* Card styles */
+    // .card {
+    //     border-radius: 10px; /* Rounded corners for cards */
+    //     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15); /* Soft shadow for cards */
+    //     transition: transform 0.2s; /* Smooth transform on hover */
+    // }
+
+    // .card:hover {
+    //     transform: translateY(-5px); /* Lift effect on hover */
+    // }
+
+    // .card-title {
+    //     font-size: 1.25rem; /* Increased font size for titles */
+    //     margin-bottom: 15px; /* Space below titles */
+    // }
+
+    // .card-text {
+    //     font-size: 1.5rem; /* Larger font for amounts */
+    // }
+
+    // /* Chart styles */
+    // canvas {
+    //     max-width: 1100px; /* Set maximum width for the chart */
+    //     height: 400px; /* Set fixed height for the chart */
+    //     margin: 20px auto; /* Center the chart */
+    //     display: block; /* Block display for centering */
+    //     border-radius: 10px; /* Rounded corners for the chart */
+    //     background-color: #f2f2f2; /* Light background for chart area */
+    //     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow for chart */
+    // }
+
+    // /* Pagination styles */
+    // .pagination {
+    //     margin-top: 20px; /* Space above pagination */
+    //     justify-content: center; /* Center pagination */
+    // }
+
+    // .pagination .page-link {
+    //     color: #4A90E2; /* Color for pagination links */
+    //     padding: 10px 15px; /* Padding for links */
+    //     border-radius: 5px; /* Rounded corners for links */
+    // }
+
+    // .pagination .page-item.active .page-link {
+    //     background-color: #4A90E2; /* Background color for active page */
+    //     color: white; /* Text color for active page */
+    // }
+
+    // .pagination .page-item.disabled .page-link {
+    //     color: #6c757d; /* Color for disabled links */
+    // }
+
+    // /* Table styles */
+    // table {
+    //     width: 100%; /* Full width table */
+    //     margin-top: 20px; /* Space above the table */
+    //     border-collapse: collapse; /* Remove spacing between cells */
+    // }
+
+    // th, td {
+    //     padding: 12px; /* Padding for table cells */
+    //     text-align: left; /* Align text to the left */
+    //     border-bottom: 1px solid #dee2e6; /* Bottom border for rows */
+    // }
+
+    // th {
+    //     background-color: #4A90E2; /* Header background color */
+    //     color: white; /* Header text color */
+    //     font-weight: bold; /* Bold text for headers */
+    // }
+
+    // tr:hover {
+    //     background-color: #f1f1f1; /* Highlight row on hover */
+    // }
+
+    // /* Responsive styles for smaller devices */
+    // @media (max-width: 768px) {
+    //     .card {
+    //         margin-bottom: 15px; /* Space between cards on smaller screens */
+    //     }
+
+    //     h2 {
+    //         font-size: 1.5rem; /* Decrease header size on smaller screens */
+    //     }
+
+    //     .card-text {
+    //         font-size: 1.25rem; /* Decrease card text size on smaller screens */
+    //     }
+
+    //     .pagination .page-link {
+    //         padding: 5px 10px; /* Smaller padding for pagination on small screens */
+    //     }
+    // }
+
+    // /* Custom Navbar */
+    // .custom-navbar {
+    //     background-color: #4A90E2; /* Custom navbar color */
+    //     padding: 10px; /* Padding for navbar */
+    //     border-radius: 0 0 10px 10px; /* Rounded corners */
+    // }
+

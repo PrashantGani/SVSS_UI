@@ -17,6 +17,8 @@ import { CommonModule } from '@angular/common';
 import { FeaturesModule } from './features/features.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NgChartsModule } from 'ng2-charts';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -28,7 +30,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     DashboardComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
-    NavbarComponent
+    NavbarComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +40,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FormsModule,
     HttpClientModule,
     FeaturesModule,
+    NgChartsModule,
     NgxPaginationModule
   ],
   providers: [AuthService, AuthGuard],

@@ -4,6 +4,7 @@ import { TransactionReportComponent } from './transaction-report/transaction-rep
 import { LoanReportComponent } from './loan-report/loan-report.component';
 import { AllTransactionReportComponent } from './all-transaction-report/all-transaction-report.component';
 import { AllAllLoanReportComponent } from './all-all-loan-report/all-all-loan-report.component';
+import { FormsModule } from '@angular/forms'; // Import this module
 
 
 
@@ -16,6 +17,7 @@ import { AllAllLoanReportComponent } from './all-all-loan-report/all-all-loan-re
   ],
   imports: [
     CommonModule,
+    FormsModule
   ]
 })
 export class FeaturesModule { }

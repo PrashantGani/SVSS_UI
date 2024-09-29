@@ -8,6 +8,7 @@
           <thead>
             <tr>
               <th>Transaction Id</th>
+              <!-- <th>Member Name</th> -->
               <th>Date</th>
               <th>Amount</th>
               <th>Particular</th>
@@ -16,6 +17,7 @@
           <tbody>
             <tr *ngFor="let d of paginatedData">
               <td>{{d.transactionId}}</td>
+              <!-- <td>{{d.memberDetails.memberName}}</td> -->
               <td>{{d.date}}</td>
               <td>{{d.amount}}</td>
               <td>{{d.particular}}</td>

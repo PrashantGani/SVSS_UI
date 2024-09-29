@@ -1,13 +1,41 @@
 <div class="card mb-4" style="max-width: 80%; margin: 0 auto;">
     <div class="card-header text-center">
-      <h5>Transaction Report</h5>
+      <h5> All Transaction Report</h5>
     </div>
     <div class="card-body">
       <div class="table-responsive">
+        <!-- <label for="dropdown">Choose a Member:</label>
+        <select id="dropdown" name="members" [(ngModel)]="selectedMemberId">
+          <option [value]="null">All Members</option> 
+          <option *ngFor="let member of members" [value]="member.memberId">
+            {{ member.memberName }}
+          </option>
+        </select> -->
+        <!-- <label for="dropdown">Choose a Member:</label>
+        <select id="dropdown" name="members" [(ngModel)]="selectedMemberId" (ngModelChange)="onMemberSelect($event)">
+          <option [value]="null">All Members</option> 
+          <option *ngFor="let member of members" [value]="member.memberId">
+            {{ member.memberName }}
+          </option>
+        </select> -->
+        
+        <label for="dropdown">Choose a Member:</label>
+        <select id="dropdown" name="members" [(ngModel)]="selectedMemberId">
+          <option [value]="null">All Members</option> <!-- Default option -->
+          <option *ngFor="let member of members" [value]="member.memberId">
+            {{ member.memberName }}
+          </option>
+        </select>
+        <!-- Add a filter button -->
+        <button (click)="filterTransactions()">Filter</button>
+
+        
+        
         <table class="table table-striped text-center">
           <thead>
             <tr>
-              <th>Transaction Id</th>
+              <!-- <th>Transaction Id</th> -->
+              <th>Member Name</th>
               <th>Date</th>
               <th>Amount</th>
               <th>Particular</th>
@@ -15,7 +43,8 @@
           </thead>
           <tbody>
             <tr *ngFor="let d of paginatedData">
-              <td>{{d.transactionId}}</td>
+              <!-- <td>{{d.transactionId}}</td> -->
+              <td>{{d.memberDetails.memberName}}</td>
               <td>{{d.date}}</td>
               <td>{{d.amount}}</td>
               <td>{{d.particular}}</td>

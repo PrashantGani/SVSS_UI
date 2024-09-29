@@ -10,6 +10,7 @@ import { TransactionReportComponent } from './features/transaction-report/transa
 import { LoanReportComponent } from './features/loan-report/loan-report.component';
 import { AllTransactionReportComponent } from './features/all-transaction-report/all-transaction-report.component';
 import { AllAllLoanReportComponent } from './features/all-all-loan-report/all-all-loan-report.component';
+import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' }, // Default route
@@ -22,7 +23,7 @@ const routes: Routes = [
   { path: 'loanReport', component: LoanReportComponent ,canActivate: [AuthGuard]},
   { path: 'allTransactionReport', component: AllTransactionReportComponent ,canActivate: [AuthGuard]},
   { path: 'allAllLoanReport', component: AllAllLoanReportComponent ,canActivate: [AuthGuard]},
-
+  { path: 'contact', component: ContactComponent }
   // { path: 'home', component: DashboardComponent },
 ];
 

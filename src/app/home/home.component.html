@@ -54,7 +54,14 @@
             </div>
         </div>
     </div>
-
+    <div style="display: block;">
+      <canvas baseChart
+        [data]="chartData"
+        [options]="chartOptions"
+        chartType="bar">
+      </canvas>
+    </div>
+    
 <div class="card mb-4">
   <div class="card-header">
     <h5>User List</h5>
