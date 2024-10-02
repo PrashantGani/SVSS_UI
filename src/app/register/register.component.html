@@ -1,110 +1,49 @@
-<!-- <div class="container d-flex justify-content-center align-items-center vh-100">
-    <div class="card shadow" style="width: 400px;">
-        <div class="card-body">
-            <h2 class="text-center mb-4">Register Here</h2>
-            <form>
-                <div class="form-group mb-3">
-                    <label for="memberName">User Name</label>
-                    <input type="text" [(ngModel)]="memberName" [ngModelOptions]="{standalone: true}"class="form-control" id="memberName" placeholder="Enter Name">
-                </div>
-                <div class="form-group mb-3">
-                    <label for="email">Email address</label>
-                    <input type="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}"class="form-control" id="email" placeholder="Enter email">
-                </div>
-                <div class="form-group mb-3">
-                    <label for="password">Password</label>
-                    <input type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}"class="form-control" id="password" placeholder="Enter password">
-                </div>
-                <div class="form-group mb-4">
-                    <label for="number">Mobile Number</label>
-                    <input type="text" [(ngModel)]="number" [ngModelOptions]="{standalone: true}"class="form-control" id="number" placeholder="Enter Number">
-                </div>
-                <button type="submit" class="btn btn-primary w-100" (click)="save()">Register</button>
-            </form>
-        </div>
-    </div>
-</div> -->
-
-
 
 <div class="container d-flex justify-content-center align-items-center vh-100">
-    <div class="card shadow" style="width: 400px;">
-        <div class="card-body">
-            <h2 class="text-center mb-4">Register Here</h2>
-            <form #registerForm="ngForm" (ngSubmit)="save(registerForm)" novalidate>
-                
-                <!-- Member Name Field -->
-                <div class="form-group mb-3">
-                    <label for="memberName">User Name</label>
-                    <input type="text" 
-                           [(ngModel)]="memberName" 
-                           name="memberName" 
-                           class="form-control" 
-                           id="memberName" 
-                           placeholder="Enter Name"
-                           required>
-                    <div *ngIf="registerForm.submitted && !registerForm.controls['memberName']?.valid" class="text-danger">
-                        Member name is required.
-                    </div>
-                </div>
-                
-                <!-- Email Field -->
-                <div class="form-group mb-3">
-                    <label for="email">Email Address</label>
-                    <input type="email" 
-                           [(ngModel)]="email" 
-                           name="email" 
-                           class="form-control" 
-                           id="email" 
-                           placeholder="Enter email"
-                           required 
-                           email>
-                    <div *ngIf="registerForm.submitted && !registerForm.controls['email']?.valid" class="text-danger">
-                        Please enter a valid email address.
-                    </div>
-                </div>
-                
-                <!-- Password Field -->
-                <div class="form-group mb-3">
-                    <label for="password">Password</label>
-                    <input type="password" 
-                           [(ngModel)]="password" 
-                           name="password" 
-                           class="form-control" 
-                           id="password" 
-                           placeholder="Enter password"
-                           required 
-                           minlength="6">
-                    <div *ngIf="registerForm.submitted && registerForm.controls['password']?.errors?.['minlength']" class="text-danger">
-                        Password must be at least 6 characters long.
-                    </div>
-                    <div *ngIf="registerForm.submitted && !registerForm.controls['password']?.valid" class="text-danger">
-                        Password is required.
-                    </div>
-                </div>
-                
-                <!-- Mobile Number Field -->
-                <div class="form-group mb-4">
-                    <label for="number">Mobile Number</label>
-                    <input type="text" 
-                           [(ngModel)]="number" 
-                           name="number" 
-                           class="form-control" 
-                           id="number" 
-                           placeholder="Enter Number"
-                           required 
-                           pattern="^[0-9]{10}$">
-                    <div *ngIf="registerForm.submitted && registerForm.controls['number']?.errors?.['pattern']" class="text-danger">
-                        Mobile number must be 10 digits long.
-                    </div>
-                    <div *ngIf="registerForm.submitted && !registerForm.controls['number']?.valid" class="text-danger">
-                        Mobile number is required.
-                    </div>
-                </div>
+  <div class="card shadow" style="width: 400px;">
+    <div class="card-body">
+      <h2 class="text-center mb-4">
+        {{ otpSent ? 'Verify Your Email Address' : 'Register Here' }}
+      </h2>
 
-                <!-- Submit Button -->
-                <button type="submit" class="btn btn-primary w-100" [disabled]="registerForm.invalid">Register</button>
-            </form>
+      <!-- Registration Form -->
+      <form *ngIf="!otpSent" #registerForm="ngForm" (ngSubmit)="save(registerForm)" novalidate>
+        <div class="form-group mb-3">
+          <label for="memberName">User Name</label>
+          <input type="text" [(ngModel)]="memberName" name="memberName" class="form-control" id="memberName" placeholder="Enter Name" required>
         </div>
+
+        <div class="form-group mb-3">
+          <label for="email">Email Address</label>
+          <input type="email" [(ngModel)]="email" name="email" class="form-control" id="email" placeholder="Enter email" required email>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="password">Password</label>
+          <input type="password" [(ngModel)]="password" name="password" class="form-control" id="password" placeholder="Enter password" required minlength="6">
+        </div>
+
+        <div class="form-group mb-4">
+          <label for="number">Mobile Number</label>
+          <input type="text" [(ngModel)]="number" name="number" class="form-control" id="number" placeholder="Enter Number" required pattern="^[0-9]{10}$">
+        </div>
+
+
+        <!-- Register Button, disabled when loading -->
+        <button type="submit" class="btn btn-primary w-100" [disabled]="registerForm.invalid">
+          Register
+        </button>
+      </form>
+
+      <!-- OTP Verification Form -->
+      <form (ngSubmit)="verifyOtp()" *ngIf="otpSent">
+        <div class="form-group mb-3">
+          <label for="otp">Enter the OTP sent to your email</label>
+          <input type="text" [(ngModel)]="otp" name="otp" class="form-control" id="otp" placeholder="Enter OTP" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Verify OTP</button>
+      </form>
     </div>
+  </div>
 </div>
+

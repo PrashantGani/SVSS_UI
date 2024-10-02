@@ -19,6 +19,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgChartsModule } from 'ng2-charts';
 import { ContactComponent } from './contact/contact.component';
+import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
+import { AddTransactionComponent } from './Admin/add-transaction/add-transaction.component';
+import { AddLoanComponent } from './Admin/add-loan/add-loan.component';
 
 
 @NgModule({
@@ -31,7 +34,9 @@ import { ContactComponent } from './contact/contact.component';
     ForgotPasswordComponent,
     ResetPasswordComponent,
     NavbarComponent,
-    ContactComponent
+    ContactComponent,
+    AddTransactionComponent,
+    AddLoanComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +46,9 @@ import { ContactComponent } from './contact/contact.component';
     HttpClientModule,
     FeaturesModule,
     NgChartsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot({ showForeground: true })
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]

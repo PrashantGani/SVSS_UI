@@ -67,7 +67,7 @@ export class HomeComponent {
       })
     ).subscribe((data) => {
     // Sum the "amount" field from all records
-    console.log(data)
+    // console.log(data)
     const totalAmount = data.reduce((sum: any, record: { amount: any; }) => sum + record.amount, 0);
 
     // Assign the sum to TotalAmount and InvestedAmount
@@ -123,9 +123,9 @@ export class HomeComponent {
       this.http.get(apiUrl).subscribe({
         next: (response: any) => {
           this.data = response;
-          console.log( "ALL TRASACTION DATA TO CHECK AMOUNT BASED ON MONTHS in home component",this.data)
+          // console.log( "ALL TRASACTION DATA TO CHECK AMOUNT BASED ON MONTHS in home component",this.data)
           const monthlyTotals = this.calculateMonthlyTotal(this.data);
-          console.log("monthlyTotals==HOME COMPONENET==",monthlyTotals); // Output the result
+          // console.log("monthlyTotals==HOME COMPONENET==",monthlyTotals); // Output the result
           this.setupChartData(monthlyTotals);
           this.setupPagination(); // Setup pagination for all transactions
         },
@@ -136,7 +136,7 @@ export class HomeComponent {
     }
 
     setupChartData(monthlyTotals: { [monthYear: string]: number }) {
-      console.log("monthlyTotals==HOME COMPONENET=setupChartData=",monthlyTotals);
+      // console.log("monthlyTotals==HOME COMPONENET=setupChartData=",monthlyTotals);
       const labels = Object.keys(monthlyTotals);
       const data = Object.values(monthlyTotals);
   

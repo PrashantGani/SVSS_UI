@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';  // Import Router
@@ -15,14 +15,13 @@ export class RegisterComponent {
   email: string ="";
   password: string ="";
   number: string ="";
-  // router: any;
-   // Inject the Router in the constructor
-   constructor(private http: HttpClient, private router: Router) { }
-  //  constructor(private http: HttpClient) { }
+  otpSent: boolean = false; // Flag to show/hide OTP input
+  otp: string ="";
+
+  constructor(private http: HttpClient, private router: Router) { }
+
   save(registerForm: NgForm) {
-    // Check if the form is valid before submitting
     if (registerForm.invalid) {
-      // If the form is invalid, mark all controls as touched so the validation messages show up
       Object.keys(registerForm.controls).forEach(control => {
         registerForm.controls[control].markAsTouched();
       });
@@ -37,10 +36,30 @@ export class RegisterComponent {
     };
     this.http.post("http://localhost:8080/api/v1/register",bodyData,{responseType: 'text'}).subscribe((resultData: any)=>
     {
-        console.log(resultData);
         // this.router.navigate(['/login']);
-        alert("User Registered Successfully");
-        this.router.navigate(['/login']);
+        this.otpSent = true;
+        alert("OTP Sent to the Registerd email Please varify your email ");
+        // this.router.navigate(['/login']);
     });
   }
+
+  verifyOtp() {
+    if (this.otp) {
+      const params = new HttpParams().set('otp', this.otp);
+      const apiUrl = 'http://localhost:8080/api/v1/verify';
+
+    // Call OTP verification API
+    this.http.post(apiUrl,{},{params}).subscribe((response: any) => {
+      if (response.message) {
+        // Redirect to login page on OTP validation success
+        alert("Member Registered Successfully.!");
+        this.router.navigate(['/login']);
+      } else {
+        alert('Invalid OTP');
+      }
+    }, (error) => {
+      console.error('OTP validation failed', error);
+    });
+  }
+}
 }

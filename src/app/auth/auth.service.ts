@@ -6,9 +6,14 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   constructor(private router: Router) {}
+  private loggedIn: boolean = false;
+
+  // isLoggedIn(): boolean {
+  //   return !!localStorage.getItem('token'); // Simulate authentication
+  // }
 
   isLoggedIn(): boolean {
-    return !!localStorage.getItem('token'); // Simulate authentication
+    return this.loggedIn || localStorage.getItem('token') !== null; // Check token existence
   }
 
   logout() {

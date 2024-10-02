@@ -25,7 +25,7 @@ export class ResetPasswordComponent {
       .set('confirmPassword', this.confirmPassword);
   
     // Make the POST request with query parameters
-    this.http.post(apiUrl, {}, { params }).subscribe({
+    this.http.post(apiUrl, { params }).subscribe({
       next: (response: any) => {
         // Handle success response from the backend
         if (response && response.message) {

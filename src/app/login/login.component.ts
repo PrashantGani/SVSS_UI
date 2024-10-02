@@ -12,6 +12,7 @@ export class LoginComponent {
   email: string ="";
   password: string ="";
   memberId: String ="";
+  isAdmin: boolean = false;
   constructor(private router: Router,private http: HttpClient) {}
  
   Login() {
@@ -41,8 +42,10 @@ export class LoginComponent {
           localStorage.setItem("token" ,resultData.Status)
 
           this.memberId= resultData.memberId;
+          this.isAdmin= resultData.isAdmin;
           console.log(this.memberId)
-          localStorage.setItem("memberId" ,resultData.memberId)
+          localStorage.setItem("memberId" ,resultData.memberId);
+          localStorage.setItem("isAdmin" ,resultData.isAdmin)
           alert("User Loged-In Successfully ");
           this.router.navigateByUrl('/home');
         }

@@ -7,8 +7,13 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
+  isAdmin: boolean = false;
 
-  constructor(private authService: AuthService){}
+  constructor(private authService: AuthService){
+    const storedIsAdmin = localStorage.getItem("isAdmin"); 
+    console.log("Admin status from local storage ",storedIsAdmin);
+    this.isAdmin = storedIsAdmin === "true"; // Convert to boolean
+  }
 
 
   

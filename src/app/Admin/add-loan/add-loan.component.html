@@ -1,0 +1,108 @@
+<div class="container mt-5">
+    <h2>Add New Loan</h2>
+    <form (ngSubmit)="addTransaction()">
+  
+        <div class="form-group">
+            <label for="memberId">Choose Member:</label>
+            <select
+              name="memberId"
+              class="form-control"
+              id="memberId"
+              placeholder="Select Member from List"
+              [(ngModel)]="loan.memberId"
+               
+              required
+            >
+              <option value="" disabled selected>Select a member</option>
+              <option *ngFor="let member of members" [value]="member.memberId">
+                {{ member.memberName }}
+              </option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="selectedMemberId">Selected Member ID:</label>
+            <input
+              type="text"
+              name="selectedMemberId"
+              class="form-control"
+              id="selectedMemberId"
+              placeholder="selected member MemberId"
+              [(ngModel)]="loan.memberId" 
+              disabled  
+            />
+          </div>
+          
+  
+      <div class="form-group">
+        <label for="particular">Particular</label>
+        <input
+          type="text"
+          name="particular"
+          class="form-control"
+          id="particular"
+          [(ngModel)]="loan.particular"
+          placeholder="Enter particulars"
+          required
+        />
+      </div>
+    
+      <div class="form-group">
+        <label for="amount">Amount</label>
+        <input
+          type="number"
+          name="amount"
+          class="form-control"
+          id="amount"
+          [(ngModel)]="loan.amount"
+          placeholder="Enter amount"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="status">Status</label>
+        <input
+          type="text"
+          name="status"
+          class="form-control"
+          id="status"
+          [(ngModel)]="loan.status"
+          placeholder="Enter status"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="remarks">Remarks</label>
+        <input
+          type="text"
+          name="remarks"
+          class="form-control"
+          id="amount"
+          [(ngModel)]="loan.remarks"
+          placeholder="Enter Remarks"
+          required
+        />
+      </div>
+    
+      <div class="form-group">
+        <label for="createdDate">Created Date</label>
+        <input
+          type="date" 
+          name="createdDate"
+          class="form-control"
+          id="date"
+          [(ngModel)]="loan.date"
+          placeholder="Choose date"
+          required
+        />
+      </div>
+    
+      <div class="form-group button-center"> 
+        <button type="submit" class="btn btn-primary w-100">Add Loan</button>
+      </div>
+      
+    </form>
+  </div>
+  
+  

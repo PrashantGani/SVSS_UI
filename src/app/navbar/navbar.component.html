@@ -11,7 +11,7 @@
     <title>Dashboard</title>
     <style>
         .custom-navbar {
-            background-color: #4A90E2; /* Custom color */
+            background-color: #6a93c2; /* Custom color */
         }
     </style>
 </head>
@@ -44,6 +44,19 @@
                     <li class="nav-item">
                         <a class="nav-link text-white" routerLink="/contact">Contact</a>
                     </li>
+                    
+                    <li class="nav-item dropdown" *ngIf="isAdmin">
+                        <a class="nav-link dropdown-toggle text-white" id="featuresDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Admin Controls
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="featuresDropdown">
+                            <li><a class="dropdown-item" routerLink="/addTransaction">Add New Transaction</a></li>
+                            <li><a class="dropdown-item" routerLink="/addLoan">Add New Loan</a></li>
+                            <!-- <li><a class="dropdown-item" routerLink="/allTransactionReport">All Transaction Report</a></li>
+                            <li><a class="dropdown-item" routerLink="/allAllLoanReport">All Loan Report</a></li> -->
+                        </ul>
+                    </li>
+
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
