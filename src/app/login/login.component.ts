@@ -23,7 +23,7 @@ export class LoginComponent {
       email: this.email,
       password: this.password,
     };
- 
+                        
         this.http.post('https://svssapi-production-5075.up.railway.app/api/v1/login', bodyData).subscribe(  (resultData: any) => {
         console.log(resultData);
  

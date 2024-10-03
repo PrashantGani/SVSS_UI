@@ -34,7 +34,7 @@ export class RegisterComponent {
       "password" : this.password,
       "number" :this.number
     };
-    this.http.post("https://svssapi-production.up.railway.app/api/v1/register",bodyData,{responseType: 'text'}).subscribe((resultData: any)=>
+    this.http.post('https://svssapi-production-5075.up.railway.app/api/v1/register',bodyData,{responseType: 'text'}).subscribe((resultData: any)=>
     {
         // this.router.navigate(['/login']);
         this.otpSent = true;
@@ -46,7 +46,7 @@ export class RegisterComponent {
   verifyOtp() {
     if (this.otp) {
       const params = new HttpParams().set('otp', this.otp);
-      const apiUrl = 'https://svssapi-production.up.railway.app/api/v1/verify';
+      const apiUrl = 'https://svssapi-production-5075.up.railway.app/api/v1/verify';
       
     // Call OTP verification API
     this.http.post(apiUrl,{},{params}).subscribe((response: any) => {
