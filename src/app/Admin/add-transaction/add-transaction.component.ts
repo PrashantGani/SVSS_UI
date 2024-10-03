@@ -28,7 +28,7 @@ export class AddTransactionComponent {
   }
 
   getMembers(): void {
-    const apiUrl = 'http://localhost:8080/api/v1/getAllMembers'; // Your API URL
+    const apiUrl = 'https://svssapi-production.up.railway.app/api/v1/getAllMembers'; // Your API URL
 
     this.http.get<any[]>(apiUrl).subscribe({
       next: (data) => {
@@ -44,7 +44,7 @@ export class AddTransactionComponent {
   //   this.transaction.memberId = memberId; // Store the selected memberId
   // }
 
-  private apiUrl = 'http://localhost:8080/api/v1/addTransaction';
+  private apiUrl = 'https://svssapi-production.up.railway.app/api/v1/addTransaction';
   addTransaction() {
     this.http.post<any>(this.apiUrl, this.transaction).subscribe(
       (response) => {

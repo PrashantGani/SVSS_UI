@@ -19,7 +19,7 @@ export class ForgotPasswordComponent {
   // Function to send OTP to the email
   onSubmit() {
     if (this.email) {
-      const apiUrl = 'http://localhost:8080/api/v1/forgot';
+      const apiUrl = 'https://svssapi-production.up.railway.app/api/v1/forgot';
       const params = new HttpParams().set('email', this.email);
 
       this.http.post(apiUrl, {}, { params }).subscribe({
@@ -38,7 +38,7 @@ export class ForgotPasswordComponent {
   // Function to verify the OTP
   verifyOtp() {
     if (this.otp) {
-      const apiUrl = 'http://localhost:8080/api/v1/verify';
+      const apiUrl = 'https://svssapi-production.up.railway.app/api/v1/verify';
       const params = new HttpParams().set('otp', this.otp);
   
       // console.log("this.otp",this.otp)

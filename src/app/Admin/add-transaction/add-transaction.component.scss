@@ -81,7 +81,7 @@
 
 /* Form group styling */
 .form-group {
-  margin-bottom: 8px;  /* Reduce the space between each form group */
+  margin-bottom: 0px;  /* Reduce the space between each form group */
 }
 
 /* Label styling */
@@ -102,6 +102,7 @@
 .btn {
   font-size: 14px;  /* Button text size */
   padding: 6px 10px; /* Button padding */
+  margin-top: 5px;
 }
 
 .form-group button-center {

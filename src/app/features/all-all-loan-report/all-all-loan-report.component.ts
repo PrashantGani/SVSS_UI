@@ -39,7 +39,7 @@ export class AllAllLoanReportComponent {
   }
 
   getAllLoan(): void {
-    const apiUrl = 'http://localhost:8080/api/v1/getLoan'; // Your API URL
+    const apiUrl = 'https://svssapi-production.up.railway.app/api/v1/getLoan'; // Your API URL
 
     this.http.get<any[]>(apiUrl).subscribe({
       next: (data) => {
@@ -54,7 +54,7 @@ export class AllAllLoanReportComponent {
     });
   }
   getMembers(): void {
-    const apiUrl = 'http://localhost:8080/api/v1/getAllMembers'; // Your API URL
+    const apiUrl = 'https://svssapi-production.up.railway.app/api/v1/getAllMembers'; // Your API URL
 
     this.http.get<any[]>(apiUrl).subscribe({
       next: (data) => {
@@ -80,7 +80,7 @@ export class AllAllLoanReportComponent {
 
   // Function to make API call to fetch loans by memberId
   getLoansByMember(memberId: string): void {
-    const apiUrl = 'http://localhost:8080/api/v1/getLoanByMemberId'; // Your API URL
+    const apiUrl = 'https://svssapi-production.up.railway.app/api/v1/getLoanByMemberId'; // Your API URL
 
     let params = new HttpParams().set('memberId', memberId);
 

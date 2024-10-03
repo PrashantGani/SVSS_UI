@@ -48,12 +48,12 @@ export class HomeComponent {
   ngOnInit(): void {
     this.fetchFinancialData(); 
     this.fetchUsers(); // Call the fetch function on component initialization
-    this.monthlySumAmount();
+    // this.monthlySumAmount();
   }
 
 
   // Fetch Invested Amount and Total Loan Given
-  private apiUrlTrnsaction = 'http://localhost:8080/api/v1/getTransactionByMemberId'; 
+  private apiUrlTrnsaction = 'https://svssapi-production.up.railway.app/api/v1/getTransactionByMemberId'; 
   fetchFinancialData(): void {
     if (this.memberId) {
       // Create HttpParams to pass the fields as query parameters
@@ -83,7 +83,7 @@ export class HomeComponent {
 
 
   // Method to fetch users directly from the backend
-  private apiUrl = 'http://localhost:8080/api/v1/getAllMembers'; 
+  private apiUrl = 'https://svssapi-production.up.railway.app/api/v1/getAllMembers'; 
   fetchUsers(): void {
     this.http.get<any[]>(this.apiUrl).pipe(
       catchError((error: any) => {
@@ -118,7 +118,7 @@ export class HomeComponent {
   }
     // Fetch all transactions
     monthlySumAmount() {
-      const apiUrl = 'http://localhost:8080/api/v1/getTransaction';
+      const apiUrl = 'https://svssapi-production.up.railway.app/api/v1/getTransaction';
   
       this.http.get(apiUrl).subscribe({
         next: (response: any) => {

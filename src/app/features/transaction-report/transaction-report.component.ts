@@ -76,7 +76,7 @@ export class TransactionReportComponent implements OnInit {
   }
 
   transactionReoprt() {
-    const apiUrl = 'http://localhost:8080/api/v1/getTransactionByMemberId';
+    const apiUrl = 'https://svssapi-production.up.railway.app/api/v1/getTransactionByMemberId';
 
     if (this.memberId) {
       let params = new HttpParams().set('memberId', this.memberId);

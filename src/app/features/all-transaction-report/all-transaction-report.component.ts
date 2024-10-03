@@ -47,7 +47,7 @@ export class AllTransactionReportComponent {
 // }
   // Fetch all transactions
   transactionReoprt() {
-    const apiUrl = 'http://localhost:8080/api/v1/getTransaction';
+    const apiUrl = 'https://svssapi-production.up.railway.app/api/v1/getTransaction';
 
     this.http.get(apiUrl).subscribe({
       next: (response: any) => {
@@ -65,7 +65,7 @@ export class AllTransactionReportComponent {
 
   // Fetch all members
   getMembers(): void {
-    const apiUrl = 'http://localhost:8080/api/v1/getAllMembers'; // Your API URL
+    const apiUrl = 'https://svssapi-production.up.railway.app/api/v1/getAllMembers'; // Your API URL
 
     this.http.get<any[]>(apiUrl).subscribe({
       next: (data) => {
@@ -99,7 +99,7 @@ export class AllTransactionReportComponent {
 
   // API call to fetch transactions by member ID
   getTransactionsByMember(memberId: string): void {
-    const apiUrl = `http://localhost:8080/api/v1/getTransactionByMemberId`; // Your API URL
+    const apiUrl = `https://svssapi-production.up.railway.app/api/v1/getTransactionByMemberId`; // Your API URL
 
     const params = new HttpParams().set('memberId', memberId); // Set the memberId as a query parameter
 

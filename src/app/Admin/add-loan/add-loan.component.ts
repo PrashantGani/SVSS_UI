@@ -24,7 +24,7 @@ export class AddLoanComponent {
   }
 
   getMembers(): void {
-    const apiUrl = 'http://localhost:8080/api/v1/getAllMembers'; // Your API URL
+    const apiUrl = 'https://svssapi-production.up.railway.app/api/v1/getAllMembers'; // Your API URL
 
     this.http.get<any[]>(apiUrl).subscribe({
       next: (data) => {
@@ -40,7 +40,7 @@ export class AddLoanComponent {
   //   this.loan.memberId = memberId; // Store the selected memberId
   // }
 
-  private apiUrl = 'http://localhost:8080/api/v1/addLoan';
+  private apiUrl = 'https://svssapi-production.up.railway.app/api/v1/addLoan';
   addTransaction() {
     this.http.post<any>(this.apiUrl, this.loan).subscribe(
       (response) => {

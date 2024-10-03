@@ -16,7 +16,7 @@ export class ResetPasswordComponent {
   constructor(private router: Router,private http: HttpClient) {}
 
   resetPWD() {
-    const apiUrl = 'http://localhost:8080/api/v1/reset'; // Replace with actual API URL
+    const apiUrl = 'https://svssapi-production.up.railway.app/api/v1/reset'; // Replace with actual API URL
   
     // Create HttpParams to pass the fields as query parameters
     let params = new HttpParams()
