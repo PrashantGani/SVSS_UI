@@ -20,10 +20,6 @@ export class AllTransactionReportComponent {
 
   constructor(private http: HttpClient) {}
 
-
-  private apiUrl = 'https://svssapi-production-5075.up.railway.app/api/v1';
-  // private apiUrl = 'http://localhost:8080/api/v1';
-
   ngOnInit(): void {
     this.transactionReoprt(); // Fetch all transactions initially
     this.getMembers(); // Fetch all members
@@ -51,9 +47,9 @@ export class AllTransactionReportComponent {
 // }
   // Fetch all transactions
   transactionReoprt() {
-    // const apiUrl = 'https://svssapi-production.up.railway.app/api/v1/getTransaction';
+    const apiUrl = 'https://svssapi-production-5075.up.railway.app/api/v1/getTransaction';
 
-    this.http.get(this.apiUrl+"/getTransaction").subscribe({
+    this.http.get(apiUrl).subscribe({
       next: (response: any) => {
         this.data = response;
         console.log( "ALL TRASACTION DATA TO CHECK AMOUNT BASED ON MONTHS",this.data)
@@ -69,9 +65,9 @@ export class AllTransactionReportComponent {
 
   // Fetch all members
   getMembers(): void {
-    // const apiUrl = 'https://svssapi-production.up.railway.app/api/v1/getAllMembers'; // Your API URL
+    const apiUrl = 'https://svssapi-production-5075.up.railway.app/api/v1/getAllMembers'; // Your API URL
 
-    this.http.get<any[]>(this.apiUrl+"/getAllMembers").subscribe({
+    this.http.get<any[]>(apiUrl).subscribe({
       next: (data) => {
         this.members = data; // Bind API response to the members array
       },
@@ -103,11 +99,11 @@ export class AllTransactionReportComponent {
 
   // API call to fetch transactions by member ID
   getTransactionsByMember(memberId: string): void {
-    // const apiUrl = `https://svssapi-production.up.railway.app/api/v1/getTransactionByMemberId`; // Your API URL
+    const apiUrl = `https://svssapi-production-5075.up.railway.app/api/v1/getTransactionByMemberId`; // Your API URL
 
     const params = new HttpParams().set('memberId', memberId); // Set the memberId as a query parameter
 
-    this.http.get<any[]>(this.apiUrl+"/getTransactionByMemberId", { params }).subscribe({
+    this.http.get<any[]>(apiUrl, { params }).subscribe({
       next: (response) => {
         this.data = response; // Update data with the response
         this.setupPagination(); // Set up pagination for the new data

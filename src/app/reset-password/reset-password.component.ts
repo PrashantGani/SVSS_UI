@@ -14,10 +14,9 @@ export class ResetPasswordComponent {
   confirmPassword: string ="";
   message: string = ''; // To display success/error messages
   constructor(private router: Router,private http: HttpClient) {}
-  private apiUrl = 'https://svssapi-production-5075.up.railway.app/api/v1';
-  // private apiUrl = 'http://localhost:8080/api/v1';
+
   resetPWD() {
-    // const apiUrl = 'https://svssapi-production.up.railway.app/api/v1/reset'; // Replace with actual API URL
+    const apiUrl = 'https://svssapi-production-5075.up.railway.app/api/v1/reset'; // Replace with actual API URL
   
     // Create HttpParams to pass the fields as query parameters
     let params = new HttpParams()
@@ -26,7 +25,7 @@ export class ResetPasswordComponent {
       .set('confirmPassword', this.confirmPassword);
   
     // Make the POST request with query parameters
-    this.http.post(this.apiUrl+"/reset", { params }).subscribe({
+    this.http.post(apiUrl, { params }).subscribe({
       next: (response: any) => {
         // Handle success response from the backend
         if (response && response.message) {

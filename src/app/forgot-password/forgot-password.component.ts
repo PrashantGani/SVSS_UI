@@ -15,15 +15,14 @@ export class ForgotPasswordComponent {
   // router: any;
 
   constructor(private http: HttpClient,private router: Router) {}
-  private apiUrl = 'https://svssapi-production-5075.up.railway.app/api/v1';
-  // private apiUrl = 'http://localhost:8080/api/v1';
+
   // Function to send OTP to the email
   onSubmit() {
     if (this.email) {
-      // const apiUrl = 'https://svssapi-production.up.railway.app/api/v1/forgot';
+      const apiUrl = 'https://svssapi-production-5075.up.railway.app/api/v1/forgot';
       const params = new HttpParams().set('email', this.email);
 
-      this.http.post(this.apiUrl+"/forgot", {}, { params }).subscribe({
+      this.http.post(apiUrl, {}, { params }).subscribe({
         next: () => {
           this.otpSent = true; // OTP has been sent successfully
           this.message = 'OTP sent to your email address.';
@@ -39,11 +38,11 @@ export class ForgotPasswordComponent {
   // Function to verify the OTP
   verifyOtp() {
     if (this.otp) {
-      // const apiUrl = 'https://svssapi-production.up.railway.app/api/v1/verify';
+      const apiUrl = 'https://svssapi-production-5075.up.railway.app/api/v1/verify';
       const params = new HttpParams().set('otp', this.otp);
   
       // console.log("this.otp",this.otp)
-      this.http.post(this.apiUrl+"/verify", {}, { params }).subscribe({
+      this.http.post(apiUrl, {}, { params }).subscribe({
         next: (response: any) => {
           // Handle the response
           console.log("response",response)
