@@ -30,7 +30,7 @@ export class AllAllLoanReportComponent {
   constructor(private http: HttpClient) {
     this.memberId = localStorage.getItem("memberId");
   }
-  private apiUrl = 'https://svssapi-production.up.railway.app/api/v1';
+  private apiUrl = 'https://svssapi-production-5075.up.railway.app/api/v1';
   // private apiUrl = 'http://localhost:8080/api/v1';
   ngOnInit(): void {
     this.loadMonths();

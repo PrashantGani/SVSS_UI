@@ -15,7 +15,7 @@ export class ForgotPasswordComponent {
   // router: any;
 
   constructor(private http: HttpClient,private router: Router) {}
-  private apiUrl = 'https://svssapi-production.up.railway.app/api/v1';
+  private apiUrl = 'https://svssapi-production-5075.up.railway.app/api/v1';
   // private apiUrl = 'http://localhost:8080/api/v1';
   // Function to send OTP to the email
   onSubmit() {

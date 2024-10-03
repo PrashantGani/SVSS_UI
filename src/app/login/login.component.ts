@@ -15,7 +15,7 @@ export class LoginComponent {
   isAdmin: boolean = false;
   constructor(private router: Router,private http: HttpClient) {}
  
-  private apiUrl = 'https://svssapi-production.up.railway.app/api/v1';
+  private apiUrl = 'https://svssapi-production-5075.up.railway.app/api/v1';
   // private apiUrl = 'http://localhost:8080/api/v1';
 
   Login() {
