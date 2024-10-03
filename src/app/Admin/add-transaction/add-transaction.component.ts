@@ -16,21 +16,18 @@ export class AddTransactionComponent {
   };
   members: any[]=[];
   constructor(private http: HttpClient,private router: Router) {}
-  // members = [  // Hardcoded list of members
-  //   { memberId: 1, memberName: 'John Doe' },
-  //   { memberId: 2, memberName: 'Jane Smith' },
-  //   { memberId: 3, memberName: 'Alice Johnson' },
-  //   { memberId: 4, memberName: 'Bob Brown' },
-  // ];
+  
+  private apiUrl = 'https://svssapi-production.up.railway.app/api/v1';
+  // private apiUrl = 'http://localhost:8080/api/v1';
 
   ngOnInit() {
     this.getMembers(); // Call the method to fetch members on component initialization
   }
 
   getMembers(): void {
-    const apiUrl = 'https://svssapi-production.up.railway.app/api/v1/getAllMembers'; // Your API URL
+    // const apiUrl = 'https://svssapi-production.up.railway.app/api/v1/getAllMembers'; // Your API URL
 
-    this.http.get<any[]>(apiUrl).subscribe({
+    this.http.get<any[]>(this.apiUrl+"getAllMembers").subscribe({
       next: (data) => {
         this.members = data; // Bind API response to the members array
       },
@@ -44,9 +41,9 @@ export class AddTransactionComponent {
   //   this.transaction.memberId = memberId; // Store the selected memberId
   // }
 
-  private apiUrl = 'https://svssapi-production.up.railway.app/api/v1/addTransaction';
+  // private apiUrl = 'https://svssapi-production.up.railway.app/api/v1/addTransaction';
   addTransaction() {
-    this.http.post<any>(this.apiUrl, this.transaction).subscribe(
+    this.http.post<any>(this.apiUrl+"/addTransaction", this.transaction).subscribe(
       (response) => {
         console.log('Transaction added successfully:', response);
         this.router.navigateByUrl('/allTransactionReport');

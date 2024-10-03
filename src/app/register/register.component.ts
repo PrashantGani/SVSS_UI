@@ -18,6 +18,9 @@ export class RegisterComponent {
   otpSent: boolean = false; // Flag to show/hide OTP input
   otp: string ="";
 
+  private apiUrl = 'https://svssapi-production.up.railway.app/api/v1';
+  // private apiUrl = 'http://localhost:8080/api/v1';
+
   constructor(private http: HttpClient, private router: Router) { }
 
   save(registerForm: NgForm) {
@@ -34,7 +37,7 @@ export class RegisterComponent {
       "password" : this.password,
       "number" :this.number
     };
-    this.http.post("https://svssapi-production.up.railway.app/api/v1/register",bodyData,{responseType: 'text'}).subscribe((resultData: any)=>
+    this.http.post(this.apiUrl+"/register",bodyData,{responseType: 'text'}).subscribe((resultData: any)=>
     {
         // this.router.navigate(['/login']);
         this.otpSent = true;
@@ -46,10 +49,10 @@ export class RegisterComponent {
   verifyOtp() {
     if (this.otp) {
       const params = new HttpParams().set('otp', this.otp);
-      const apiUrl = 'https://svssapi-production.up.railway.app/api/v1/verify';
-
+      // const apiUrl = 'https://svssapi-production.up.railway.app/api/v1/verify';
+      // const apiUrl = 'http://localhost:8080/api/v1/verify';
     // Call OTP verification API
-    this.http.post(apiUrl,{},{params}).subscribe((response: any) => {
+    this.http.post(this.apiUrl+"/verify",{},{params}).subscribe((response: any) => {
       if (response.message) {
         // Redirect to login page on OTP validation success
         alert("Member Registered Successfully.!");

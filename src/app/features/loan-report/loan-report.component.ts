@@ -34,11 +34,14 @@ export class LoanReportComponent implements OnInit {
     this.getLoan(); // Fetch loans when the component initializes
   }
 
+  private apiUrl = 'https://svssapi-production.up.railway.app/api/v1';
+  // private apiUrl = 'http://localhost:8080/api/v1';
+
   getLoan(): void {
-    const apiUrl = 'https://svssapi-production.up.railway.app/api/v1/getLoanByMemberId'; // Your API URL
+    // const apiUrl = 'https://svssapi-production.up.railway.app/api/v1/getLoanByMemberId'; // Your API URL
     if (this.memberId) {
       let params = new HttpParams().set('memberId', this.memberId);
-      this.http.get(apiUrl, { params }).subscribe({
+      this.http.get(this.apiUrl+"/getLoanByMemberId", { params }).subscribe({
         next: (response: any) => {
           console.log(response);
           this.loans = response; // Store fetched loans

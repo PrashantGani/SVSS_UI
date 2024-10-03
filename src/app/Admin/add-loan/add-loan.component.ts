@@ -18,15 +18,17 @@ export class AddLoanComponent {
   members: any[]=[];
   constructor(private http: HttpClient,private router: Router) {}
 
+  private apiUrl = 'https://svssapi-production.up.railway.app/api/v1';
+  // private apiUrl = 'http://localhost:8080/api/v1';
 
   ngOnInit() {
     this.getMembers(); // Call the method to fetch members on component initialization
   }
 
   getMembers(): void {
-    const apiUrl = 'https://svssapi-production.up.railway.app/api/v1/getAllMembers'; // Your API URL
+    // const apiUrl = 'https://svssapi-production.up.railway.app/api/v1/getAllMembers'; // Your API URL
 
-    this.http.get<any[]>(apiUrl).subscribe({
+    this.http.get<any[]>(this.apiUrl+"/getAllMembers").subscribe({
       next: (data) => {
         this.members = data; // Bind API response to the members array
       },
@@ -40,9 +42,9 @@ export class AddLoanComponent {
   //   this.loan.memberId = memberId; // Store the selected memberId
   // }
 
-  private apiUrl = 'https://svssapi-production.up.railway.app/api/v1/addLoan';
+  // private apiUrl = 'https://svssapi-production.up.railway.app/api/v1/addLoan';
   addTransaction() {
-    this.http.post<any>(this.apiUrl, this.loan).subscribe(
+    this.http.post<any>(this.apiUrl+"/addLoan", this.loan).subscribe(
       (response) => {
         console.log('Loan added successfully:', response);
         this.router.navigateByUrl('/allAllLoanReport');

@@ -15,6 +15,9 @@ export class LoginComponent {
   isAdmin: boolean = false;
   constructor(private router: Router,private http: HttpClient) {}
  
+  private apiUrl = 'https://svssapi-production.up.railway.app/api/v1';
+  // private apiUrl = 'http://localhost:8080/api/v1';
+
   Login() {
     console.log(this.email);
     console.log(this.password);
@@ -24,7 +27,7 @@ export class LoginComponent {
       password: this.password,
     };
  
-        this.http.post("https://svssapi-production.up.railway.app/api/v1/login", bodyData).subscribe(  (resultData: any) => {
+        this.http.post("/login", bodyData).subscribe(  (resultData: any) => {
         console.log(resultData);
  
         if (resultData.message == "Email not exits")

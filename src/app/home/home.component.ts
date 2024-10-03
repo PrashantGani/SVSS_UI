@@ -39,8 +39,9 @@ export class HomeComponent {
       }
     }
   };
-  // private apiUrl = 'http://localhost:8080/api/v1/getAllMembers'; // Replace with your actual API URL
-// Allow null
+  private apiUrl = 'https://svssapi-production.up.railway.app/api/v1';
+  // private apiUrl = 'http://localhost:8080/api/v1';
+
   constructor(private http: HttpClient,private authService: AuthService) {
     this.memberId = localStorage.getItem("memberId"); 
   } // Inject HttpClient
@@ -53,14 +54,14 @@ export class HomeComponent {
 
 
   // Fetch Invested Amount and Total Loan Given
-  private apiUrlTrnsaction = 'https://svssapi-production.up.railway.app/api/v1/getTransactionByMemberId'; 
+  // private apiUrlTrnsaction = 'https://svssapi-production.up.railway.app/api/v1/getTransactionByMemberId'; 
   fetchFinancialData(): void {
     if (this.memberId) {
       // Create HttpParams to pass the fields as query parameters
       // console.log(this.memberId+"in Home Ts")
       let params = new HttpParams().set('memberId', this.memberId); // Use memberId
     
-    this.http.get<any>(this.apiUrlTrnsaction,{params}).pipe(
+    this.http.get<any>(this.apiUrl+"/getTransactionByMemberId",{params}).pipe(
       catchError(error => {
         console.error('Error fetching financial data:', error); // Handle error
         return of({ investedAmount: 1000, totalLoanGiven: 1000 }); // Return default values on error
@@ -83,9 +84,9 @@ export class HomeComponent {
 
 
   // Method to fetch users directly from the backend
-  private apiUrl = 'https://svssapi-production.up.railway.app/api/v1/getAllMembers'; 
+  // private apiUrl = 'https://svssapi-production.up.railway.app/api/v1/getAllMembers'; 
   fetchUsers(): void {
-    this.http.get<any[]>(this.apiUrl).pipe(
+    this.http.get<any[]>(this.apiUrl+"/getAllMembers").pipe(
       catchError((error: any) => {
         console.error('Error fetching users:', error);
         return of([]);  // Return an empty array in case of an error
@@ -118,9 +119,9 @@ export class HomeComponent {
   }
     // Fetch all transactions
     monthlySumAmount() {
-      const apiUrl = 'https://svssapi-production.up.railway.app/api/v1/getTransaction';
+      // const apiUrl = 'https://svssapi-production.up.railway.app/api/v1/getTransaction';
   
-      this.http.get(apiUrl).subscribe({
+      this.http.get(this.apiUrl+"/getTransaction").subscribe({
         next: (response: any) => {
           this.data = response;
           // console.log( "ALL TRASACTION DATA TO CHECK AMOUNT BASED ON MONTHS in home component",this.data)
