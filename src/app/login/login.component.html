@@ -23,14 +23,14 @@
 <div class="container d-flex justify-content-center align-items-center vh-100">
     <div class="card shadow" style="width: 400px;">
         <div class="card-body">
-            <h2 class="text-center mb-4">  <i class="fas fa-address-card"></i>  Login Here</h2>
+            <h2 class="text-center mb-4">Login Here</h2>
             <form>
                 <div class="form-group mb-3">
-                    <label for="email"><i class="fas fa-envelope"></i>  Email address</label>
+                    <label for="email">Email address</label>
                     <input type="email"  [(ngModel)]="email" [ngModelOptions]="{standalone: true}" class="form-control" id="email" placeholder="Enter email">
                 </div>
                 <div class="form-group mb-3">
-                    <label for="password"><i class="fa-solid fa-lock"></i>  Password</label>
+                    <label for="password">Password</label>
                     <input type="password"  [(ngModel)]="password" [ngModelOptions]="{standalone: true}" class="form-control" id="password" placeholder="Enter password">
                 </div>
                 <button type="submit" (click)="Login()" class="btn btn-primary w-100">Login</button>
