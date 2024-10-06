@@ -36,6 +36,8 @@
               <th>Date</th>
               <th>Particular</th>
               <th>Loan Amount</th>
+              <th>Interest Amount</th>
+              <th>Total Amount</th>
               <th>Loan Status</th>
               <th>Remarks</th>
             </tr>
@@ -45,8 +47,10 @@
             <tr *ngFor="let loan of paginatedData">
               <td>{{ loan.loanId }}</td>
               <td>{{ loan.date | date: 'yyyy-MM-dd' }}</td>
+              <td>{{ loan.loanAmount  | currency:'INR'  }}</td>
+              <td>{{ loan.intrestAmount  | currency:'INR'  }}</td>
+              <td>{{ loan.totalAmount  | currency:'INR'  }}</td>
               <td>{{ loan.particular }}</td>
-              <td>{{ loan.amount  | currency:'INR'  }}</td>
               <td>{{ loan.status }}</td>
               <td>{{ loan.remarks }}</td>
             </tr>

@@ -40,7 +40,7 @@ export class AllAllLoanReportComponent {
 
   getAllLoan(): void {
     const apiUrl = 'https://svssapi-production-5075.up.railway.app/api/v1/getLoan'; // Your API URL
-
+    // const apiUrl = 'http://localhost:8080/api/v1/getLoan';
     this.http.get<any[]>(apiUrl).subscribe({
       next: (data) => {
         console.log(data)
