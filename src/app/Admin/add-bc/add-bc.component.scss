@@ -1,0 +1,78 @@
+
+/* Container styling */
+.container {
+    max-width: 400px; /* Limit the form width */
+    padding: 10px;    /* Reduce the padding inside the container */
+    margin: 0 auto;   /* Center the form */
+    background-color: #f9f9f9;  /* Light background for better readability */
+    border-radius: 8px;  /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+  }
+  
+  /* Form group styling */
+  .form-group {
+    margin-bottom: 0px;  /* Reduce the space between each form group */
+  }
+  
+  /* Label styling */
+  .form-group label {
+    font-size: 12px;  /* Smaller font size for labels */
+    margin-bottom: 4px;  /* Reduce the space between label and input */
+  }
+  
+  /* Input and select field styling */
+  .form-group input,
+  .form-group select {
+    font-size: 12px;  /* Smaller font size for input and select fields */
+    padding: 4px 8px; /* Reduce padding inside input fields */
+    height: 30px;     /* Decrease input field height */
+  }
+  
+  /* Button styling */
+  .btn {
+    font-size: 14px;  /* Button text size */
+    padding: 6px 10px; /* Button padding */
+    margin-top: 5px;
+  }
+  
+  .form-group button-center {
+    text-align: center; /* Center button alignment */
+  }
+  h2 {
+    font-size: 18px;  /* Reduce heading size */
+    text-align: center;  /* Center the heading */
+    margin-bottom: 10px;  /* Reduce space below the heading */
+    color: gray;
+  }
+  
+  //calender date picker
+  
+  /* Style the date input field */
+  input[type="date"] {
+    background-color: #f0f4f8; /* Change background color */
+    color: #333;               /* Change text color */
+    font-size: 14px;           /* Adjust font size */
+    padding: 10px;             /* Add padding for size control */
+    border-radius: 5px;        /* Rounded corners */
+    border: 1px solid #ccc;    /* Border styling */
+    width: 100%;               /* Make the field full width */
+  }
+  
+  /* Control the size of the date input field */
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    background-color: #859ab0; /* Change the color of the calendar icon (works in Chrome/Edge) */
+    color: white;
+    border-radius: 50%;
+    padding: 5px;
+  }
+  
+  /* Increase the size of the input field (including the calendar icon) */
+  input[type="date"] {
+    height: 40px; /* Adjust the height */
+  }
+  
+  /* Hover effect on date input field */
+  input[type="date"]:hover {
+    border-color: #26435f;  /* Change border color on hover */
+  }
+  

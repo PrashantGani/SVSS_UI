@@ -39,6 +39,183 @@ export class HomeComponent {
       }
     }
   };
+
+
+// TEST DATA 
+
+  transactions = [
+  // Member 1: John Doe
+  {
+    transactionId: 1,
+    memberId: 101,
+    date: new Date('2024-10-01'),
+    particular: 'Loan Payment',
+    amount: 2000.00,
+    createdAt: new Date('2024-10-01T10:15:30'),
+    memberDetails: {
+      memberId: 101,
+      memberName: 'John Doe',
+      email: 'john.doe@example.com',
+      number: '1234567890',
+      is_admin: false,
+      created_at: new Date('2023-05-10'),
+      otp: 123456,
+      otpVerified: true
+    }
+  },
+  {
+    transactionId: 2,
+    memberId: 101,
+    date: new Date('2024-11-01'),
+    particular: 'Monthly Collection',
+    amount: 2000.00,
+    createdAt: new Date('2024-11-01T12:30:45'),
+    memberDetails: {
+      memberId: 101,
+      memberName: 'John Doe',
+      email: 'john.doe@example.com',
+      number: '1234567890',
+      is_admin: false,
+      created_at: new Date('2023-05-10'),
+      otp: 123456,
+      otpVerified: true
+    }
+  },
+  {
+    transactionId: 3,
+    memberId: 101,
+    date: new Date('2024-12-01'),
+    particular: 'New Loan',
+    amount: 2000.00,
+    createdAt: new Date('2024-12-01T14:45:00'),
+    memberDetails: {
+      memberId: 101,
+      memberName: 'John Doe',
+      email: 'john.doe@example.com',
+      number: '1234567890',
+      is_admin: false,
+      created_at: new Date('2023-05-10'),
+      otp: 123456,
+      otpVerified: true
+    }
+  },
+
+  // Member 2: Jane Smith
+  {
+    transactionId: 4,
+    memberId: 102,
+    date: new Date('2024-10-15'),
+    particular: 'Monthly Collection',
+    amount: 2000.00,
+    createdAt: new Date('2024-10-15T09:20:00'),
+    memberDetails: {
+      memberId: 102,
+      memberName: 'Jane Smith',
+      email: 'jane.smith@example.com',
+      number: '9876543210',
+      is_admin: true,
+      created_at: new Date('2023-06-15'),
+      otp: 654321,
+      otpVerified: true
+    }
+  },
+  {
+    transactionId: 5,
+    memberId: 102,
+    date: new Date('2024-11-15'),
+    particular: 'Loan Payment',
+    amount: 2000.00,
+    createdAt: new Date('2024-11-15T11:10:30'),
+    memberDetails: {
+      memberId: 102,
+      memberName: 'Jane Smith',
+      email: 'jane.smith@example.com',
+      number: '9876543210',
+      is_admin: true,
+      created_at: new Date('2023-06-15'),
+      otp: 654321,
+      otpVerified: true
+    }
+  },
+  {
+    transactionId: 6,
+    memberId: 102,
+    date: new Date('2024-12-15'),
+    particular: 'New Loan',
+    amount: 2000.00,
+    createdAt: new Date('2024-12-15T13:00:45'),
+    memberDetails: {
+      memberId: 102,
+      memberName: 'Jane Smith',
+      email: 'jane.smith@example.com',
+      number: '9876543210',
+      is_admin: true,
+      created_at: new Date('2023-06-15'),
+      otp: 654321,
+      otpVerified: true
+    }
+  },
+
+  // Member 3: Michael Johnson
+  {
+    transactionId: 7,
+    memberId: 103,
+    date: new Date('2024-10-20'),
+    particular: 'New Loan',
+    amount: 2000.00,
+    createdAt: new Date('2024-10-20T15:45:00'),
+    memberDetails: {
+      memberId: 103,
+      memberName: 'Michael Johnson',
+      email: 'michael.j@example.com',
+      number: '1231231234',
+      is_admin: false,
+      created_at: new Date('2023-07-20'),
+      otp: 789123,
+      otpVerified: false
+    }
+  },
+  {
+    transactionId: 8,
+    memberId: 103,
+    date: new Date('2024-11-20'),
+    particular: 'Monthly Payment',
+    amount: 2000.00,
+    createdAt: new Date('2024-11-20T16:30:00'),
+    memberDetails: {
+      memberId: 103,
+      memberName: 'Michael Johnson',
+      email: 'michael.j@example.com',
+      number: '1231231234',
+      is_admin: false,
+      created_at: new Date('2023-07-20'),
+      otp: 789123,
+      otpVerified: false
+    }
+  },
+  {
+    transactionId: 9,
+    memberId: 103,
+    date: new Date('2024-12-20'),
+    particular: 'Final Payment',
+    amount: 2000.00,
+    createdAt: new Date('2024-12-20T17:15:30'),
+    memberDetails: {
+      memberId: 103,
+      memberName: 'Michael Johnson',
+      email: 'michael.j@example.com',
+      number: '1231231234',
+      is_admin: false,
+      created_at: new Date('2023-07-20'),
+      otp: 789123,
+      otpVerified: false
+    }
+  }
+];
+
+
+
+
   // private apiUrl = 'http://localhost:8080/api/v1/getAllMembers'; // Replace with your actual API URL
 // Allow null
   constructor(private http: HttpClient,private authService: AuthService) {
@@ -48,7 +225,7 @@ export class HomeComponent {
   ngOnInit(): void {
     this.fetchFinancialData(); 
     this.fetchUsers(); // Call the fetch function on component initialization
-    // this.monthlySumAmount();
+    this.monthlySumAmount();
   }
 
 
@@ -97,6 +274,8 @@ export class HomeComponent {
   }
 
 
+
+  
    // Function to calculate total amount collected per month
    calculateMonthlyTotal(transactions: any[]): { [monthYear: string]: number } {
     // console.log(transactions,"-calculateMonthlyTotal")
@@ -116,23 +295,31 @@ export class HomeComponent {
         return acc;
     }, {});
   }
-    // Fetch all transactions
-    monthlySumAmount() {
-      const apiUrl = 'https://svssapi-production-5075.up.railway.app/api/v1/getTransaction';
+    // // Fetch all transactions
+    // monthlySumAmount() {
+    //   const apiUrl = 'https://svssapi-production-5075.up.railway.app/api/v1/getTransaction';
   
-      this.http.get(apiUrl).subscribe({
-        next: (response: any) => {
-          this.data = response;
-          // console.log( "ALL TRASACTION DATA TO CHECK AMOUNT BASED ON MONTHS in home component",this.data)
-          const monthlyTotals = this.calculateMonthlyTotal(this.data);
-          // console.log("monthlyTotals==HOME COMPONENET==",monthlyTotals); // Output the result
-          this.setupChartData(monthlyTotals);
-          this.setupPagination(); // Setup pagination for all transactions
-        },
-        error: (err) => {
-          console.error('Error occurred:', err);
-        }
-      });
+    //   this.http.get(apiUrl).subscribe({
+    //     next: (response: any) => {
+    //       this.data = response;
+    //       // console.log( "ALL TRASACTION DATA TO CHECK AMOUNT BASED ON MONTHS in home component",this.data)
+    //       const monthlyTotals = this.calculateMonthlyTotal(this.data);
+    //       // console.log("monthlyTotals==HOME COMPONENET==",monthlyTotals); // Output the result
+    //       this.setupChartData(monthlyTotals);
+    //       this.setupPagination(); // Setup pagination for all transactions
+    //     },
+    //     error: (err) => {
+    //       console.error('Error occurred:', err);
+    //     }
+    //   });
+    // }
+
+    // TEST DATA METHOD
+        // Fetch all transactions
+    monthlySumAmount() {
+      const monthlyTotals = this.calculateMonthlyTotal(this.transactions);
+      this.setupChartData(monthlyTotals);
+      this.setupPagination(); // Setup pagination for all transactions
     }
 
     setupChartData(monthlyTotals: { [monthYear: string]: number }) {

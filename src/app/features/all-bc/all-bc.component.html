@@ -1,24 +1,9 @@
 <div class="card mb-4" style="max-width: 80%; margin: 0 auto;">
     <div class="card-header text-center">
-      <h5> All Transaction Report</h5>
+      <h5> All BC Report</h5>
     </div>
     <div class="card-body">
       <div class="table-responsive">
-        <!-- <label for="dropdown">Choose a Member:</label>
-        <select id="dropdown" name="members" [(ngModel)]="selectedMemberId">
-          <option [value]="null">All Members</option> 
-          <option *ngFor="let member of members" [value]="member.memberId">
-            {{ member.memberName }}
-          </option>
-        </select> -->
-        <!-- <label for="dropdown">Choose a Member:</label>
-        <select id="dropdown" name="members" [(ngModel)]="selectedMemberId" (ngModelChange)="onMemberSelect($event)">
-          <option [value]="null">All Members</option> 
-          <option *ngFor="let member of members" [value]="member.memberId">
-            {{ member.memberName }}
-          </option>
-        </select> -->
-        
         <label for="dropdown">Choose a Member:</label>
         <select id="dropdown" name="members" [(ngModel)]="selectedMemberId">
           <option [value]="null">All Members</option> <!-- Default option -->
@@ -36,8 +21,10 @@
             <tr>
               <!-- <th>Transaction Id</th> -->
               <th>Member Name</th>
-              <th>Transaction Date</th>
-              <th>Transaction Amount</th>
+              <th>Date</th>
+              <th>Basic Amount </th>
+              <th>BID Amount</th>
+              <th>Total Amount</th>
               <th>Particular</th>
             </tr>
           </thead>
@@ -46,7 +33,9 @@
               <!-- <td>{{d.transactionId}}</td> -->
               <td>{{d.memberDetails.memberName}}</td>
               <td>{{d.date | date: 'yyyy-MM-dd'}}</td>
-              <td>{{d.amount  | currency:'INR' }}</td>
+              <td>{{d.basicAmount  | currency:'INR' }}</td>
+              <td>{{d.bidAmount  | currency:'INR' }}</td>
+              <td>{{d.totalAmount  | currency:'INR' }}</td>
               <td>{{d.particular}}</td>
             </tr>
           </tbody>
@@ -68,3 +57,4 @@
     </div>
   </div>
   
+

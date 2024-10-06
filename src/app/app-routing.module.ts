@@ -13,6 +13,8 @@ import { AllAllLoanReportComponent } from './features/all-all-loan-report/all-al
 import { ContactComponent } from './contact/contact.component';
 import { AddTransactionComponent } from './Admin/add-transaction/add-transaction.component';
 import { AddLoanComponent } from './Admin/add-loan/add-loan.component';
+import { AddBcComponent } from './Admin/add-bc/add-bc.component';
+import { AllBcComponent } from './features/all-bc/all-bc.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' }, // Default route
@@ -27,6 +29,8 @@ const routes: Routes = [
   { path: 'allAllLoanReport', component: AllAllLoanReportComponent ,canActivate: [AuthGuard]},
   { path: 'addTransaction', component: AddTransactionComponent ,canActivate: [AuthGuard]},
   { path: 'addLoan', component: AddLoanComponent ,canActivate: [AuthGuard]},
+  { path: 'addBc', component: AddBcComponent ,canActivate: [AuthGuard]},
+  { path: 'allBcReport', component: AllBcComponent ,canActivate: [AuthGuard]},
   { path: 'contact', component: ContactComponent }
   // { path: 'home', component: DashboardComponent },
 ];

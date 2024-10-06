@@ -3,16 +3,20 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-add-loan',
-  templateUrl: './add-loan.component.html',
-  styleUrls: ['./add-loan.component.scss']
+  selector: 'app-add-bc',
+  templateUrl: './add-bc.component.html',
+  styleUrls: ['./add-bc.component.scss']
 })
-export class AddLoanComponent {
-  loan: any = {
+export class AddBcComponent {
+
+  bc: any = {
     memberId: null,
+    date: '',
     particular: '',
-    amount: null, 
-    date: ''
+    bidAmount: null,
+    basicAmount: null,
+    status: '',
+    remarks: ''
   };
 
   members: any[]=[];
@@ -41,17 +45,19 @@ export class AddLoanComponent {
   //   this.loan.memberId = memberId; // Store the selected memberId
   // }
 
-  private apiUrl = 'https://svssapi-production-5075.up.railway.app/api/v1/addLoan';
-  // private apiUrl = '  http://localhost:8080/api/v1/addLoan';
-  addLoan() {
-    this.http.post<any>(this.apiUrl, this.loan).subscribe(
+  private apiUrl = 'https://svssapi-production-5075.up.railway.app/api/v1/addBc';
+  // private apiUrl = '  http://localhost:8080/api/v1/addBc';
+  addBc() {
+    console.log(this.bc)
+    this.http.post<any>(this.apiUrl, this.bc).subscribe(
       (response) => {
-        console.log('Loan added successfully:', response);
-        this.router.navigateByUrl('/allAllLoanReport');
+        console.log(' Bc Added successfully:', response);
+        this.router.navigateByUrl('/home');
       },
       (error) => {
         console.error('Error adding transaction:', error);
       }
     );
   }
+
 }

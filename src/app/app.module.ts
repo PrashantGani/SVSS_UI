@@ -22,6 +22,7 @@ import { ContactComponent } from './contact/contact.component';
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
 import { AddTransactionComponent } from './Admin/add-transaction/add-transaction.component';
 import { AddLoanComponent } from './Admin/add-loan/add-loan.component';
+import { AddBcComponent } from './Admin/add-bc/add-bc.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { AddLoanComponent } from './Admin/add-loan/add-loan.component';
     NavbarComponent,
     ContactComponent,
     AddTransactionComponent,
-    AddLoanComponent
+    AddLoanComponent,
+    AddBcComponent
   ],
   imports: [
     BrowserModule,

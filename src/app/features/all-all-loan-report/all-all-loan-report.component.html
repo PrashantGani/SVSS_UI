@@ -35,8 +35,8 @@
               <th>Loan ID</th>
               <th>Date</th>
               <th>Particular</th>
-              <th>Amount</th>
-              <th>Status</th>
+              <th>Loan Amount</th>
+              <th>Loan Status</th>
               <th>Remarks</th>
             </tr>
           </thead>
@@ -46,7 +46,7 @@
               <td>{{ loan.loanId }}</td>
               <td>{{ loan.date | date: 'yyyy-MM-dd' }}</td>
               <td>{{ loan.particular }}</td>
-              <td>{{ loan.amount | currency }}</td>
+              <td>{{ loan.amount  | currency:'INR'  }}</td>
               <td>{{ loan.status }}</td>
               <td>{{ loan.remarks }}</td>
             </tr>

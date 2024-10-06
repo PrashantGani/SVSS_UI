@@ -4,7 +4,8 @@ import { TransactionReportComponent } from './transaction-report/transaction-rep
 import { LoanReportComponent } from './loan-report/loan-report.component';
 import { AllTransactionReportComponent } from './all-transaction-report/all-transaction-report.component';
 import { AllAllLoanReportComponent } from './all-all-loan-report/all-all-loan-report.component';
-import { FormsModule } from '@angular/forms'; // Import this module
+import { FormsModule } from '@angular/forms';
+import { AllBcComponent } from './all-bc/all-bc.component'; // Import this module
 
 
 
@@ -13,7 +14,8 @@ import { FormsModule } from '@angular/forms'; // Import this module
     TransactionReportComponent,
     LoanReportComponent,
     AllTransactionReportComponent,
-    AllAllLoanReportComponent
+    AllAllLoanReportComponent,
+    AllBcComponent
   ],
   imports: [
     CommonModule,

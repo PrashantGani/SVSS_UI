@@ -1,6 +1,6 @@
 <div class="container mt-2">
-    <h2>Add New Loan</h2>
-    <form (ngSubmit)="addLoan()">
+    <h2>Add New BC</h2>
+    <form (ngSubmit)="addBc()">
   
         <div class="form-group">
             <label for="memberId">Choose Member:</label>
@@ -8,7 +8,7 @@
               name="memberId"
               class="form-control"
               id="memberId"
-              [(ngModel)]="loan.memberId"
+              [(ngModel)]="bc.memberId"
                
               required
             >
@@ -27,33 +27,33 @@
               class="form-control"
               id="selectedMemberId"
               placeholder="selected member MemberId"
-              [(ngModel)]="loan.memberId" 
+              [(ngModel)]="bc.memberId" 
               disabled  
             />
           </div>
           
   
       <div class="form-group">
-        <label for="loanAmount">Loan Amount</label>
+        <label for="basicAmount">Basic Amount</label>
         <input
           type="text"
-          name="loanAmount"
+          name="basicAmount"
           class="form-control"
-          id="loanAmount"
-          [(ngModel)]="loan.loanAmount"
-          placeholder="Enter Loan Amount"
+          id="basicAmount"
+          [(ngModel)]="bc.basicAmount"
+          placeholder="Enter Basic Amount"
           required
         />
       </div>
       <div class="form-group">
-        <label for="intrestAmount">Interest Amount</label>
+        <label for="bidAmount">BID Amount</label>
         <input
           type="number"
-          name="intrestAmount"
+          name="bidAmount"
           class="form-control"
-          id="intrestAmount"
-          [(ngModel)]="loan.intrestAmount"
-          placeholder="Enter Interest Amount"
+          id="bidAmount"
+          [(ngModel)]="bc.bidAmount"
+          placeholder="Enter BID Amount"
           required
         />
       </div>
@@ -64,7 +64,7 @@
           name="particular"
           class="form-control"
           id="particular"
-          [(ngModel)]="loan.particular"
+          [(ngModel)]="bc.particular"
           placeholder="Enter particulars"
           required
         />
@@ -76,7 +76,7 @@
             name="status"
             class="form-control"
             id="status"
-            [(ngModel)]="loan.status"
+            [(ngModel)]="bc.status"
             required
         >
             <option value="" disabled selected>Select Status</option>
@@ -93,7 +93,7 @@
           name="remarks"
           class="form-control"
           id="amount"
-          [(ngModel)]="loan.remarks"
+          [(ngModel)]="bc.remarks"
           placeholder="Enter Remarks"
           required
         />
@@ -106,14 +106,14 @@
           name="createdDate"
           class="form-control"
           id="date"
-          [(ngModel)]="loan.date"
+          [(ngModel)]="bc.date"
           placeholder="Choose date"
           required
         />
       </div>
     
       <div class="form-group button-center"> 
-        <button type="submit" class="btn btn-primary w-100">Add Loan</button>
+        <button type="submit" class="btn btn-primary w-100">Add BC</button>
       </div>
       
     </form>
